@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9">   
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+  <title>Jogo da forca</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.3/js/esri/css/esri.css">  
+  <script src="http://serverapi.arcgisonline.com/jsapi/arcgis/3.3compact"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.shuffle.js"></script>    
+  <!-- Load Maps - Hangman Game CSS and JS -->
+  <link rel="stylesheet" type="text/css" href="css/hangmanmap.css">
+  <script src="js/ArcGIS.js"></script>
+</head>
+<body class="disableSelection"> 
+    <div id="fb-root"></div>
+    <div class="wrap">
+        <div id="hud">
+            <h2>Jogo da forca</h2>
+            <div id="gamestatus">
+                <div id="mistakes"></div>
+                <p><button class="btn btn-info restart">Recomeçar</button></p>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div> 
+    <div id="panel">
+        <div id="wordContainer">
+            <ul id="word"></ul>
+        </div>
+        <div id="keyboardContainer">
+            <div id="next">
+                <div class="nextcentered"><button class="btn btn btn-success btn-xlarge nextRound">Próximo »</button></div>
+            </div>
+            <ul class="keyboard">
+                <li class="btn">A</li>
+                <li class="btn">B</li>
+                <li class="btn">C</li>
+                <li class="btn">D</li>
+                <li class="btn">E</li>
+                <li class="btn">F</li>
+                <li class="btn">G</li>
+                <li class="btn">H</li>
+                <li class="btn">I</li>
+                <li class="btn">J</li>
+                <li class="btn">K</li>
+                <li class="btn">L</li>
+                <li class="btn">M</li>
+                <li class="btn">N</li>
+            </ul>
+            <ul class="keyboard keyboardline2">
+                <li class="btn">O</li>
+                <li class="btn">P</li>
+                <li class="btn">Q</li>
+                <li class="btn">R</li>
+                <li class="btn">S</li>
+                <li class="btn">T</li>
+                <li class="btn">U</li>
+                <li class="btn">V</li>
+                <li class="btn">W</li>
+                <li class="btn">X</li>
+                <li class="btn">Y</li>
+                <li class="btn">Z</li>
+            </ul>
+            </ul>
+        </div>
+    </div>
+    <div id="overlay" class="overlayapp results">
+        <div id="loading" class="centered">
+            <img src="images/logo.png" alt="Hangman Game">
+            <p class="loadLbl">Carregando <img src="images/loader.gif" alt="Loading"></p>
+            <div class="ginfo" style="display: none">
+                <p>Descubra o Brasil através dos nomes dos estados da federação para salvar o mundo da forca. Educação, lúcido e engraçado.
+                <br>Olhe no mapa o tempo todo, isso vai ajudar você!</p>
+                <p><button class="btn btn-info btn-large restart">Começar!</button></p>
+            </div>
+        </div>
+    </div>
+    <div id="win" class="overlayapp hideOverlay results">
+        <div id="winContainer" class="wincentered">
+            <p class="resultTitle">Incrível!</p>     
+            <p>Você completou o jogo.</p>     
+            <p class="btnspace"><button class="btn btn-info btn-large restart">Novo Jogo</button></p>
+        </div>
+    </div>
+    <div id="fail" class="overlayapp hideOverlay results">
+        <div id="winContainer" class="wincentered">
+            <p class="resultTitle">Quase!</p>
+            <p>A resposta é <span class="answer"></span></p>                 
+            <p class="btnspace"><button class="btn btn-info btn-large restart">Tente novamente</button></p>
+        </div>
+    </div>
+</body>
+</html>
